@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Electrobombas.Api/Electrobombas.Api.csproj" />
+  <Project Path="Electrobombas.Application/Electrobombas.Application.csproj" />
+  <Project Path="Electrobombas.Core/Electrobombas.Core.csproj" />
+  <Project Path="Electrobombas.Domain/Electrobombas.Domain.csproj" />
+  <Project Path="Electrobombas.Infraestructure/Electrobombas.Infraestructure.csproj" />
+</Solution>
