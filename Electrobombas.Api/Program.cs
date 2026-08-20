@@ -1,3 +1,8 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Electrobombas.Application.Cores.Contexts;
+using Electrobombas.Infraestructure.Cores.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +10,34 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Route Options
+builder.Services.Configure<RouteOptions>(options =>
+{
+    options.LowercaseUrls = true;
+    options.LowercaseQueryStrings = true;
+
+});
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// Infrastructure
+builder.Services.addInfrastructureServices(builder.Configuration);
+
+
+// Applications
+builder.Services.AddApplicationServices();
+
+// Autofac
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
+    .ConfigureContainer<ContainerBuilder>(options =>
+    {
+        options.RegisterModule(new InfrastructureAutofacModule());
+        options.RegisterModule(new ApplicationAutofacModule());
+    });
+
 
 var app = builder.Build();
 
@@ -15,6 +48,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(options =>
+{
+    options.AllowAnyHeader()
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .Build();
+});
 
 app.UseAuthorization();
 

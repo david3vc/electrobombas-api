@@ -1,9 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>08331af6-ba34-47ae-b5c4-d8bf3fdc58ec</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +16,12 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Serilog.AspNetCore" Version="10.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Electrobombas.Application\Electrobombas.Application.csproj" />
+    <ProjectReference Include="..\Electrobombas.Core\Electrobombas.Core.csproj" />
+    <ProjectReference Include="..\Electrobombas.Infraestructure\Electrobombas.Infraestructure.csproj" />
   </ItemGroup>
 
 </Project>
