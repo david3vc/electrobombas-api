@@ -1,9 +1,5 @@
 ﻿using Electrobombas.Domain.Cores.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Net.NetworkInformation;
-using System.Text;
 
 namespace Electrobombas.Domain.Cores.Repositories
 {

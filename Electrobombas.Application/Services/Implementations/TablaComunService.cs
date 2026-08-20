@@ -1,12 +1,8 @@
-﻿//using AutoMapper;
-using Electrobombas.Application.Dtos.TablaComunes;
+﻿using Electrobombas.Application.Dtos.TablaComunes;
 using Electrobombas.Application.Dtos.TablaComunes.Extensions;
 using Electrobombas.Domain.Models;
 using Electrobombas.Domain.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Electrobombas.Application.Services.Implementations
 {

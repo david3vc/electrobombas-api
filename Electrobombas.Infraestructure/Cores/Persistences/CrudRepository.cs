@@ -2,10 +2,7 @@
 using Electrobombas.Domain.Cores.Repositories;
 using Electrobombas.Infraestructure.Cores.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Electrobombas.Infraestructure.Cores.Persistences
 {

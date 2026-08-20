@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Electrobombas.Domain.Models
+﻿namespace Electrobombas.Domain.Models
 {
     public class TablaComun
     {
