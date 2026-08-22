@@ -14,8 +14,8 @@ namespace Electrobombas.Api.Controllers
             _tablaComunService = tablaComunService;
         }
 
-        [HttpGet("FindAllByIds")]
-        public async Task<IReadOnlyList<TablaComunDto>> PaginatedSearch([FromQuery] TablaComunFilterDto filter)
+        [HttpGet("find-all-by-ids")]
+        public async Task<IReadOnlyList<TablaComunDto>> FindAllByIds([FromQuery] TablaComunFilterDto filter)
         {
             return await _tablaComunService.FindAllByIdsAsync(filter);
         }

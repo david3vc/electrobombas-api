@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Electrobombas.Domain.Models
+namespace Electrobombas.Application.Dtos.Pozos
 {
-    public class Pozo
+    public class PozoDto
     {
         public int Id { get; set; }
         public string? Nombre { get; set; }
@@ -22,10 +22,5 @@ namespace Electrobombas.Domain.Models
         public string? SerieBomba { get; set; }
         public int? NumeroImpulsores { get; set; }
         public int? IdUbicacion { get; set; }
-        public DateTime FechaCreacion { get; set; }
-        public DateTime? FechaActualizacion { get; set; }
-        public bool Estado { get; set; }
-
-        public virtual TablaComun Ubicacion { get; set; }
     }
 }

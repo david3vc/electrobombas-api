@@ -10,5 +10,7 @@
         public DateTime FechaCreacion { get; set; }
         public DateTime? FechaActualizacion { get; set; }
         public bool Estado { get; set; }
+
+        public virtual ICollection<Pozo> Pozos { get; set; }
     }
 }
