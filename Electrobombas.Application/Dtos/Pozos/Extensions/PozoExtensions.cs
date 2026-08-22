@@ -78,10 +78,5 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
         {
             public List<PozoDto> ToDtoList() => pozos.Select(p => p.ToDto()).ToList();
         }
-
-        //extension(PagedResult<Pozo> pozos)
-        //{
-        //    public PageResponse<Pozo> ToDtoListPaginated() => pozos.
-        //}
     }
 }

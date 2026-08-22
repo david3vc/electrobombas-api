@@ -1,11 +1,12 @@
-﻿using Electrobombas.Application.Dtos.TablaComunes;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Electrobombas.Application.Dtos.TablaComunes;
 using Electrobombas.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Electrobombas.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class TablaComunController : Controller
+    public class TablaComunController : ControllerBase
     {
         private readonly ITablaComunService _tablaComunService;
 
@@ -15,9 +16,11 @@ namespace Electrobombas.Api.Controllers
         }
 
         [HttpGet("find-all-by-ids")]
-        public async Task<IReadOnlyList<TablaComunDto>> FindAllByIds([FromQuery] TablaComunFilterDto filter)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IReadOnlyList<TablaComunDto>))]
+        public async Task<Ok<IReadOnlyList<TablaComunDto>>> FindAllByIds([FromQuery] TablaComunFilterDto filter)
         {
-            return await _tablaComunService.FindAllByIdsAsync(filter);
+            var response = await _tablaComunService.FindAllByIdsAsync(filter);
+            return TypedResults.Ok(response);
         }
     }
 }

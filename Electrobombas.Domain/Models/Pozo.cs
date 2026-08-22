@@ -26,6 +26,7 @@ namespace Electrobombas.Domain.Models
         public DateTime? FechaActualizacion { get; set; }
         public bool Estado { get; set; }
 
-        public virtual TablaComun Ubicacion { get; set; }
+        public virtual TablaComun? Ubicacion { get; set; }
+        public virtual ICollection<Mantenimiento>? Mantenimientos { get; set; }
     }
 }

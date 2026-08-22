@@ -84,7 +84,6 @@ namespace Electrobombas.Application.Services.Implementations
         public async Task<PozoDto> FindByIdAsync(int id)
         {
             Pozo? pozo = await _pozoRepository.FindByIdAsync(id);
-
             if (pozo is null) throw PozoNotFound(id);
 
             return pozo.ToDto();
@@ -92,7 +91,7 @@ namespace Electrobombas.Application.Services.Implementations
 
         private NotFoundCoreException PozoNotFound(int id)
         {
-            return new NotFoundCoreException("Pozo no encontrada para el id: " + id);
+            return new NotFoundCoreException("Pozo no encontrado para el id: " + id);
         }
     }
 }
