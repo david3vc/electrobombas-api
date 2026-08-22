@@ -1,8 +1,5 @@
 ﻿using Electrobombas.Application.Cores.Dtos;
 using Electrobombas.Domain.Cores.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Electrobombas.Application.Cores.Extensions
 {

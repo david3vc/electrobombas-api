@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Electrobombas.Application.Dtos.TablaComunes;
+﻿using Electrobombas.Application.Dtos.TablaComunes;
 using Electrobombas.Application.Services;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Electrobombas.Api.Controllers

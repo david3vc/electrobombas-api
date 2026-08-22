@@ -6,10 +6,7 @@ using Electrobombas.Application.Dtos.Mantenimientos.Extensions;
 using Electrobombas.Domain.Cores.Models;
 using Electrobombas.Domain.Models;
 using Electrobombas.Domain.Repositories;
-using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace Electrobombas.Application.Services.Implementations
 {

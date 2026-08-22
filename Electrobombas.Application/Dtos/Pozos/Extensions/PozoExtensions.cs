@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Electrobombas.Domain.Models;
-using System.Text;
-using Electrobombas.Domain.Cores.Models;
-using Electrobombas.Application.Cores.Dtos;
+﻿using Electrobombas.Domain.Models;
 
 namespace Electrobombas.Application.Dtos.Pozos.Extensions
 {

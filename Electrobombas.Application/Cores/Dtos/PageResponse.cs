@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Electrobombas.Application.Cores.Dtos
+﻿namespace Electrobombas.Application.Cores.Dtos
 {
     public class PageResponse<T>
     {

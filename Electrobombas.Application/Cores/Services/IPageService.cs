@@ -1,7 +1,4 @@
 ﻿using Electrobombas.Application.Cores.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Electrobombas.Application.Cores.Services
 {

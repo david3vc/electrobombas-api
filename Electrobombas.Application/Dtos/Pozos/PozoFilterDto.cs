@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Electrobombas.Application.Dtos.Pozos
+﻿namespace Electrobombas.Application.Dtos.Pozos
 {
     public class PozoFilterDto
     {
