@@ -13,5 +13,6 @@
 
         public virtual ICollection<Pozo>? Pozos { get; set; }
         public virtual ICollection<Mantenimiento>? Mantenimientos { get; set; }
+        public virtual ICollection<MantenimientoTrabajador>? MantenimientoTrabajadores { get; set; }
     }
 }

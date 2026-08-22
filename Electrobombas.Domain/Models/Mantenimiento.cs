@@ -13,5 +13,6 @@
 
         public virtual Pozo? Pozo { get; set; }
         public virtual TablaComun? TipoMantenimiento { get; set; }
+        public virtual ICollection<MantenimientoTrabajador>? MantenimientoTrabajadores { get; set; }
     }
 }
