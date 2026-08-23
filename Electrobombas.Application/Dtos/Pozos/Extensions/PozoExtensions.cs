@@ -24,6 +24,7 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
                 SerieBomba = pozo.SerieBomba,
                 NumeroImpulsores = pozo.NumeroImpulsores,
                 IdUbicacion = pozo.IdUbicacion,
+                Estado = pozo.Estado,
             };
 
             public void ApplyFrom(PozoSaveDto saveDto)

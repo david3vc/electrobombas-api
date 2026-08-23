@@ -18,5 +18,6 @@
         public string? SerieBomba { get; set; }
         public int? NumeroImpulsores { get; set; }
         public int? IdUbicacion { get; set; }
+        public bool Estado { get; set; }
     }
 }
