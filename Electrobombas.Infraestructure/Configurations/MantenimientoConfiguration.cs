@@ -12,6 +12,8 @@ namespace Electrobombas.Infraestructure.Configurations
             builder.HasKey(t => t.Id);
             builder.Property(t => t.Id).HasColumnName("id_mantenimiento");
             builder.Property(t => t.Fecha).HasColumnName("fecha");
+            builder.Property(t => t.HoraInicio).HasColumnName("hora_inicio");
+            builder.Property(t => t.HoraFin).HasColumnName("hora_fin");
             builder.Property(t => t.IdPozo).HasColumnName("id_pozo");
             builder.Property(t => t.IdTipoMantenimiento).HasColumnName("id_tipo_mantenimiento");
             builder.Property(t => t.Observaciones).HasColumnName("observaciones");

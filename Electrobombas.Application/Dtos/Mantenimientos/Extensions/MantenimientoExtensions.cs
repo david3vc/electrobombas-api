@@ -13,6 +13,8 @@ namespace Electrobombas.Application.Dtos.Mantenimientos.Extensions
             {
                 Id = mantenimiento.Id,
                 Fecha = mantenimiento.Fecha,
+                HoraInicio = mantenimiento.HoraInicio,
+                HoraFin = mantenimiento.HoraFin,
                 IdPozo = mantenimiento.IdPozo,
                 IdTipoMantenimiento = mantenimiento.IdTipoMantenimiento,
                 Observaciones = mantenimiento.Observaciones,
@@ -25,6 +27,8 @@ namespace Electrobombas.Application.Dtos.Mantenimientos.Extensions
             public void ApplyFrom(MantenimientoSaveDto saveDto)
             {
                 mantenimiento.Fecha = saveDto.Fecha;
+                mantenimiento.HoraInicio = saveDto.HoraInicio;
+                mantenimiento.HoraFin = saveDto.HoraFin;
                 mantenimiento.IdPozo = saveDto.IdPozo;
                 mantenimiento.IdTipoMantenimiento = saveDto.IdTipoMantenimiento;
                 mantenimiento.Observaciones = saveDto.Observaciones;
@@ -36,6 +40,8 @@ namespace Electrobombas.Application.Dtos.Mantenimientos.Extensions
             public Mantenimiento ToMantenimiento() => new()
             {
                 Fecha = mantenimientoSave?.Fecha,
+                HoraInicio = mantenimientoSave?.HoraInicio,
+                HoraFin = mantenimientoSave?.HoraFin,
                 IdPozo = mantenimientoSave?.IdPozo,
                 IdTipoMantenimiento = mantenimientoSave?.IdTipoMantenimiento,
                 Observaciones = mantenimientoSave?.Observaciones,
