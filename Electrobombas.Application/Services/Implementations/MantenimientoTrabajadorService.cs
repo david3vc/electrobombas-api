@@ -7,6 +7,7 @@ using Electrobombas.Domain.Models;
 using Electrobombas.Domain.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Electrobombas.Application.Services.Implementations
@@ -54,7 +55,11 @@ namespace Electrobombas.Application.Services.Implementations
 
         public async Task<IReadOnlyList<MantenimientoTrabajadorDto>> FindAllAsync()
         {
-            IReadOnlyList<MantenimientoTrabajador> mantenimientos = await _mantenimientoTrabajadorRepository.FindAllAsync();
+            List<Expression<Func<MantenimientoTrabajador, object>>> includes = new List<Expression<Func<MantenimientoTrabajador, object>>>()
+            {
+                t => t.Mantenimiento
+            };
+            IReadOnlyList<MantenimientoTrabajador> mantenimientos = await _mantenimientoTrabajadorRepository.FindAllAsync(includes: includes);
 
             return mantenimientos.ToDtoList();
         }

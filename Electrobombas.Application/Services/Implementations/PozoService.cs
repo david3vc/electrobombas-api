@@ -1,6 +1,7 @@
 ﻿using Electrobombas.Application.Cores.Dtos;
 using Electrobombas.Application.Cores.Exceptions;
 using Electrobombas.Application.Cores.Extensions;
+using Electrobombas.Application.Dtos.Mantenimientos.Extensions;
 using Electrobombas.Application.Dtos.Pozos;
 using Electrobombas.Application.Dtos.Pozos.Extensions;
 using Electrobombas.Domain.Cores.Models;
@@ -53,7 +54,12 @@ namespace Electrobombas.Application.Services.Implementations
 
         public async Task<IReadOnlyList<PozoDto>> FindAllAsync()
         {
-            IReadOnlyList<Pozo> pozos = await _pozoRepository.FindAllAsync();
+            List<Expression<Func<Pozo, object>>> includes = new()
+            {
+                p => p.Ubicacion,
+                p => p.Mantenimientos
+            };
+            IReadOnlyList<Pozo> pozos = await _pozoRepository.FindAllAsync(includes: includes);
 
             return pozos.ToDtoList();
         }
@@ -70,7 +76,8 @@ namespace Electrobombas.Application.Services.Implementations
 
             List<Expression<Func<Pozo, object>>> includes = new List<Expression<Func<Pozo, object>>>()
             {
-                t => t.Ubicacion
+                t => t.Ubicacion,
+                t => t.Mantenimientos
             };
 
             var response = await _pozoRepository.FindAllPaginatedAsync(paging: paging, predicate: predicate, includes: includes);
@@ -80,7 +87,13 @@ namespace Electrobombas.Application.Services.Implementations
 
         public async Task<PozoDto> FindByIdAsync(int id)
         {
-            Pozo? pozo = await _pozoRepository.FindByIdAsync(id);
+            Expression<Func<Pozo, bool>> predicate = x => (x.Id == id);
+            List<Expression<Func<Pozo, object>>> includes = new()
+            {
+                p => p.Ubicacion,
+                p => p.Mantenimientos
+            };
+            Pozo? pozo = await _pozoRepository.FindByIdAsync(predicate, includes);
             if (pozo is null) throw PozoNotFound(id);
 
             return pozo.ToDto();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Electrobombas.Application.Dtos.Mantenimientos;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,5 +11,6 @@ namespace Electrobombas.Application.Dtos.MantenimientoTrabajadores
         public int? IdMantenimiento { get; set; }
         public int? IdTrabajador { get; set; }
         public bool Estado { get; set; }
+        public MantenimientoDto? Mantenimiento { get; set; }
     }
 }

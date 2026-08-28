@@ -1,4 +1,7 @@
-﻿using Electrobombas.Domain.Models;
+﻿using Electrobombas.Application.Dtos.MantenimientoTrabajadores.Extensions;
+using Electrobombas.Application.Dtos.Pozos.Extensions;
+using Electrobombas.Application.Dtos.TablaComunes.Extensions;
+using Electrobombas.Domain.Models;
 
 namespace Electrobombas.Application.Dtos.Mantenimientos.Extensions
 {
@@ -6,7 +9,7 @@ namespace Electrobombas.Application.Dtos.Mantenimientos.Extensions
     {
         extension(Mantenimiento mantenimiento)
         {
-            public MantenimientoDto ToDto() => new()
+            public MantenimientoDto ToDto(bool includePozo = true) => new()
             {
                 Id = mantenimiento.Id,
                 Fecha = mantenimiento.Fecha,
@@ -14,6 +17,9 @@ namespace Electrobombas.Application.Dtos.Mantenimientos.Extensions
                 IdTipoMantenimiento = mantenimiento.IdTipoMantenimiento,
                 Observaciones = mantenimiento.Observaciones,
                 Estado = mantenimiento.Estado,
+                Pozo = includePozo ? mantenimiento?.Pozo?.ToDto() : null,
+                TipoMantenimiento = mantenimiento?.TipoMantenimiento?.ToDto(),
+                Trabajadores = mantenimiento?.MantenimientoTrabajadores?.ToDtoList(includeMantenimiento: false)
             };
 
             public void ApplyFrom(MantenimientoSaveDto saveDto)
@@ -38,7 +44,7 @@ namespace Electrobombas.Application.Dtos.Mantenimientos.Extensions
 
         extension(IEnumerable<Mantenimiento> mantenimientos)
         {
-            public List<MantenimientoDto> ToDtoList() => mantenimientos.Select(m => m.ToDto()).ToList();
+            public List<MantenimientoDto> ToDtoList(bool includePozo = true) => mantenimientos.Select(m => m.ToDto(includePozo)).ToList();
         }
     }
 }

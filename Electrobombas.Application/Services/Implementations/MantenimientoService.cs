@@ -7,6 +7,7 @@ using Electrobombas.Domain.Cores.Models;
 using Electrobombas.Domain.Models;
 using Electrobombas.Domain.Repositories;
 using System.Linq.Expressions;
+using static System.Net.WebRequestMethods;
 
 namespace Electrobombas.Application.Services.Implementations
 {
@@ -53,7 +54,13 @@ namespace Electrobombas.Application.Services.Implementations
 
         public async Task<IReadOnlyList<MantenimientoDto>> FindAllAsync()
         {
-            IReadOnlyList<Mantenimiento> mantenimientos = await _mantenimientoRepository.FindAllAsync();
+            List<Expression<Func<Mantenimiento, object>>> includes = new List<Expression<Func<Mantenimiento, object>>>()
+            {
+                t => t.TipoMantenimiento,
+                t => t.Pozo,
+                t => t.MantenimientoTrabajadores
+            };
+            IReadOnlyList<Mantenimiento> mantenimientos = await _mantenimientoRepository.FindAllAsync(includes: includes);
 
             return mantenimientos.ToDtoList();
         }
@@ -70,7 +77,9 @@ namespace Electrobombas.Application.Services.Implementations
 
             List<Expression<Func<Mantenimiento, object>>> includes = new List<Expression<Func<Mantenimiento, object>>>()
             {
-                t => t.TipoMantenimiento
+                t => t.TipoMantenimiento,
+                t => t.Pozo,
+                t => t.MantenimientoTrabajadores
             };
 
             var response = await _mantenimientoRepository.FindAllPaginatedAsync(paging: paging, predicate: predicate, includes: includes);
@@ -80,7 +89,14 @@ namespace Electrobombas.Application.Services.Implementations
 
         public async Task<MantenimientoDto> FindByIdAsync(int id)
         {
-            Mantenimiento? mantenimiento = await _mantenimientoRepository.FindByIdAsync(id);
+            Expression<Func<Mantenimiento, bool>> predicate = x => (x.Id == id);
+            List<Expression<Func<Mantenimiento, object>>> includes = new List<Expression<Func<Mantenimiento, object>>>()
+            {
+                t => t.TipoMantenimiento,
+                t => t.Pozo,
+                t => t.MantenimientoTrabajadores
+            };
+            Mantenimiento? mantenimiento = await _mantenimientoRepository.FindByIdAsync(predicate, includes: includes);
             if (mantenimiento is null) throw MantenimientoNotFound(id);
 
             return mantenimiento.ToDto();

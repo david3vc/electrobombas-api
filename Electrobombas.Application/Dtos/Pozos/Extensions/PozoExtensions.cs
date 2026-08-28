@@ -1,4 +1,6 @@
-﻿using Electrobombas.Domain.Models;
+﻿using Electrobombas.Application.Dtos.Mantenimientos.Extensions;
+using Electrobombas.Application.Dtos.TablaComunes.Extensions;
+using Electrobombas.Domain.Models;
 
 namespace Electrobombas.Application.Dtos.Pozos.Extensions
 {
@@ -25,6 +27,8 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
                 NumeroImpulsores = pozo.NumeroImpulsores,
                 IdUbicacion = pozo.IdUbicacion,
                 Estado = pozo.Estado,
+                Ubicacion = pozo?.Ubicacion?.ToDto(),
+                Mantenimientos = pozo?.Mantenimientos?.ToDtoList(includePozo: false)
             };
 
             public void ApplyFrom(PozoSaveDto saveDto)

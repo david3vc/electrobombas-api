@@ -1,4 +1,8 @@
-﻿namespace Electrobombas.Application.Dtos.Mantenimientos
+﻿using Electrobombas.Application.Dtos.MantenimientoTrabajadores;
+using Electrobombas.Application.Dtos.Pozos;
+using Electrobombas.Application.Dtos.TablaComunes;
+
+namespace Electrobombas.Application.Dtos.Mantenimientos
 {
     public class MantenimientoDto
     {
@@ -8,5 +12,8 @@
         public int? IdTipoMantenimiento { get; set; }
         public string? Observaciones { get; set; }
         public bool Estado { get; set; }
+        public PozoDto? Pozo { get; set; }
+        public TablaComunDto? TipoMantenimiento { get; set; }
+        public List<MantenimientoTrabajadorDto>? Trabajadores { get; set; }
     }
 }

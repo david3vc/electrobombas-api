@@ -11,12 +11,13 @@ namespace Electrobombas.Application.Dtos.MantenimientoTrabajadores.Extensions
     {
         extension(MantenimientoTrabajador mantenimientoTrabajador)
         {
-            public MantenimientoTrabajadorDto ToDto() => new()
+            public MantenimientoTrabajadorDto ToDto(bool includeMantenimiento = true) => new()
             {
                 Id = mantenimientoTrabajador.Id,
                 IdMantenimiento = mantenimientoTrabajador.IdMantenimiento,
                 IdTrabajador = mantenimientoTrabajador.IdTrabajador,
-                Estado = mantenimientoTrabajador.Estado
+                Estado = mantenimientoTrabajador.Estado,
+                Mantenimiento = includeMantenimiento ? mantenimientoTrabajador?.Mantenimiento?.ToDto() : null,
             };
 
             public void ApplyFrom(MantenimientoTrabajadorSaveDto saveDto)
@@ -37,7 +38,7 @@ namespace Electrobombas.Application.Dtos.MantenimientoTrabajadores.Extensions
 
         extension(IEnumerable<MantenimientoTrabajador> mantenimientoTrabajadores)
         {
-            public List<MantenimientoTrabajadorDto> ToDtoList() => mantenimientoTrabajadores.Select(m => m.ToDto()).ToList();
+            public List<MantenimientoTrabajadorDto> ToDtoList(bool includeMantenimiento = true) => mantenimientoTrabajadores.Select(m => m.ToDto(includeMantenimiento)).ToList();
         }
     }
 }

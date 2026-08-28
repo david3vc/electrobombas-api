@@ -1,4 +1,7 @@
-﻿namespace Electrobombas.Application.Dtos.Pozos
+﻿using Electrobombas.Application.Dtos.Mantenimientos;
+using Electrobombas.Application.Dtos.TablaComunes;
+
+namespace Electrobombas.Application.Dtos.Pozos
 {
     public class PozoDto
     {
@@ -19,5 +22,7 @@
         public int? NumeroImpulsores { get; set; }
         public int? IdUbicacion { get; set; }
         public bool Estado { get; set; }
+        public TablaComunDto? Ubicacion { get; set; }
+        public List<MantenimientoDto>? Mantenimientos { get; set; }
     }
 }
