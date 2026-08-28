@@ -2,7 +2,7 @@
 {
     public class PozoFilterDto
     {
-        public string? Nombre { get; set; }
+        public string? Numero { get; set; }
         public decimal? Diametro { get; set; }
         public decimal? Ne { get; set; }
         public decimal? Profundidad { get; set; }

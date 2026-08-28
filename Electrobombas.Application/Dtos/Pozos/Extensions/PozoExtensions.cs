@@ -11,20 +11,20 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
             public PozoDto ToDto() => new()
             {
                 Id = pozo.Id,
-                Nombre = pozo.Nombre,
+                Numero = pozo.Numero,
                 Diametro = pozo.Diametro,
-                Ne = pozo.Ne,
-                Profundidad = pozo.Profundidad,
-                CantidadTubos = pozo.CantidadTubos,
-                DiametroTubo = pozo.DiametroTubo,
-                Hp = pozo.Hp,
-                Voltaje = pozo.Voltaje,
-                Amperaje = pozo.Amperaje,
-                Rpm = pozo.Rpm,
-                CaudalLps = pozo.CaudalLps,
-                SerieMotor = pozo.SerieMotor,
-                SerieBomba = pozo.SerieBomba,
-                NumeroImpulsores = pozo.NumeroImpulsores,
+                //Ne = pozo.Ne,
+                //Profundidad = pozo.Profundidad,
+                //CantidadTubos = pozo.CantidadTubos,
+                //DiametroTubo = pozo.DiametroTubo,
+                HpActual = pozo.HpActual,
+                //Voltaje = pozo.Voltaje,
+                //Amperaje = pozo.Amperaje,
+                RpmActual = pozo.RpmActual,
+                //CaudalLps = pozo.CaudalLps,
+                SerieMotorActual = pozo.SerieMotorActual,
+                SerieBombaActual = pozo.SerieBombaActual,
+                //NumeroImpulsores = pozo.NumeroImpulsores,
                 IdUbicacion = pozo.IdUbicacion,
                 Estado = pozo.Estado,
                 Ubicacion = pozo?.Ubicacion?.ToDto(),
@@ -33,20 +33,20 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
 
             public void ApplyFrom(PozoSaveDto saveDto)
             {
-                pozo.Nombre = saveDto.Nombre;
+                pozo.Numero = saveDto.Numero;
                 pozo.Diametro = saveDto.Diametro;
-                pozo.Ne = saveDto.Ne;
-                pozo.Profundidad = saveDto.Profundidad;
-                pozo.CantidadTubos = saveDto.CantidadTubos;
-                pozo.DiametroTubo = saveDto.DiametroTubo;
-                pozo.Hp = saveDto.Hp;
-                pozo.Voltaje = saveDto.Voltaje;
-                pozo.Amperaje = saveDto.Amperaje;
-                pozo.Rpm = saveDto.Rpm;
-                pozo.CaudalLps = saveDto.CaudalLps;
-                pozo.SerieMotor = saveDto.SerieMotor;
-                pozo.SerieBomba = saveDto.SerieBomba;
-                pozo.NumeroImpulsores = saveDto.NumeroImpulsores;
+                //pozo.Ne = saveDto.Ne;
+                //pozo.Profundidad = saveDto.Profundidad;
+                //pozo.CantidadTubos = saveDto.CantidadTubos;
+                //pozo.DiametroTubo = saveDto.DiametroTubo;
+                pozo.HpActual = saveDto.HpActual;
+                //pozo.Voltaje = saveDto.Voltaje;
+                //pozo.Amperaje = saveDto.Amperaje;
+                pozo.RpmActual = saveDto.RpmActual;
+                //pozo.CaudalLps = saveDto.CaudalLps;
+                pozo.SerieMotorActual = saveDto.SerieMotorActual;
+                pozo.SerieBombaActual = saveDto.SerieBombaActual;
+                //pozo.NumeroImpulsores = saveDto.NumeroImpulsores;
                 pozo.IdUbicacion = saveDto.IdUbicacion;
             }
         }
@@ -55,20 +55,20 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
         {
             public Pozo ToPozo() => new()
             {
-                Nombre = pozoSave?.Nombre,
+                Numero = pozoSave?.Numero,
                 Diametro = pozoSave?.Diametro,
-                Ne = pozoSave?.Ne,
-                Profundidad = pozoSave?.Profundidad,
-                CantidadTubos = pozoSave?.CantidadTubos,
-                DiametroTubo = pozoSave?.DiametroTubo,
-                Hp = pozoSave?.Hp,
-                Voltaje = pozoSave?.Voltaje,
-                Amperaje = pozoSave?.Amperaje,
-                Rpm = pozoSave?.Rpm,
-                CaudalLps = pozoSave?.CaudalLps,
-                SerieMotor = pozoSave?.SerieMotor,
-                SerieBomba = pozoSave?.SerieBomba,
-                NumeroImpulsores = pozoSave?.NumeroImpulsores,
+                //Ne = pozoSave?.Ne,
+                //Profundidad = pozoSave?.Profundidad,
+                //CantidadTubos = pozoSave?.CantidadTubos,
+                //DiametroTubo = pozoSave?.DiametroTubo,
+                HpActual = pozoSave?.HpActual,
+                //Voltaje = pozoSave?.Voltaje,
+                //Amperaje = pozoSave?.Amperaje,
+                RpmActual = pozoSave?.RpmActual,
+                //CaudalLps = pozoSave?.CaudalLps,
+                SerieMotorActual = pozoSave?.SerieMotorActual,
+                SerieBombaActual = pozoSave?.SerieBombaActual,
+                //NumeroImpulsores = pozoSave?.NumeroImpulsores,
                 IdUbicacion = pozoSave?.IdUbicacion
             };
         }

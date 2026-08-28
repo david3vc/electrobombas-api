@@ -70,7 +70,7 @@ namespace Electrobombas.Application.Services.Implementations
             var paging = new Paging() { PageNumber = request.Page, PageSize = request.PerPage };
 
             Expression<Func<Pozo, bool>> predicate = x =>
-                (string.IsNullOrWhiteSpace(filter.Nombre) || x.Nombre.ToUpper().Contains(filter.Nombre.ToUpper()))
+                (string.IsNullOrWhiteSpace(filter.Numero) || x.Numero.ToUpper().Contains(filter.Numero.ToUpper()))
                 && (!filter.IdUbicacion.HasValue || x.IdUbicacion == filter.IdUbicacion)
                 && (!filter.Estado.HasValue || x.Estado == filter.Estado);
 
