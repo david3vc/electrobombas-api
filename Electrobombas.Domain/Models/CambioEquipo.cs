@@ -1,0 +1,28 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Electrobombas.Domain.Models
+{
+    public class CambioEquipo
+    {
+        public int Id { get; set; }
+        public int? IdMantenimiento { get; set; }
+        public int? IdTipoEquipo { get; set; }
+        public string? MotorMarcaActualAnterior { get; set; }
+        public string? MotorMarcaActualNuevo { get; set; }
+        public string? SerieAnterior { get; set; }
+        public string? SerieNuevo { get; set; }
+        public decimal? HpAnterior { get; set; }
+        public decimal? HpNuevo { get; set; }
+        public decimal? RpmAnterior { get; set; }
+        public decimal? RpmNuevo { get; set; }
+        public string? Observacion { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime? FechaActualizacion { get; set; }
+        public bool Estado { get; set; }
+
+        public virtual TablaComun? TipoEquipo { get; set; }
+        public virtual Mantenimiento? Mantenimiento { get; set; }
+    }
+}

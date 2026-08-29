@@ -17,5 +17,6 @@
         public virtual TablaComun? TipoMantenimiento { get; set; }
         public virtual MedicionMantenimiento? MedicionMantenimiento { get; set; }
         public virtual ICollection<MantenimientoTrabajador>? MantenimientoTrabajadores { get; set; }
+        public virtual ICollection<CambioEquipo>? CambioEquipos { get; set; }
     }
 }
