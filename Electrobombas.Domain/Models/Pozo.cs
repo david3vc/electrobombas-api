@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public string? Numero { get; set; }
+        public string? Marca { get; set; }
         public decimal? Diametro { get; set; }
         public decimal? HpActual { get; set; }
         public string? SerieMotorActual { get; set; }

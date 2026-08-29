@@ -12,6 +12,7 @@ namespace Electrobombas.Infraestructure.Configurations
             builder.HasKey(t => t.Id);
             builder.Property(t => t.Id).HasColumnName("id_pozo");
             builder.Property(t => t.Numero).HasColumnName("numero");
+            builder.Property(t => t.Marca).HasColumnName("marca");
             builder.Property(t => t.Diametro).HasColumnName("diametro");
             builder.Property(t => t.HpActual).HasColumnName("hp_actual");
             builder.Property(t => t.RpmActual).HasColumnName("rpm_actual");

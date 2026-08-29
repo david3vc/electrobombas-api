@@ -12,6 +12,7 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
             {
                 Id = pozo.Id,
                 Numero = pozo.Numero,
+                Marca = pozo.Marca,
                 Diametro = pozo.Diametro,
                 //Ne = pozo.Ne,
                 //Profundidad = pozo.Profundidad,
@@ -34,6 +35,7 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
             public void ApplyFrom(PozoSaveDto saveDto)
             {
                 pozo.Numero = saveDto.Numero;
+                pozo.Marca = saveDto.Marca;
                 pozo.Diametro = saveDto.Diametro;
                 //pozo.Ne = saveDto.Ne;
                 //pozo.Profundidad = saveDto.Profundidad;
@@ -57,6 +59,7 @@ namespace Electrobombas.Application.Dtos.Pozos.Extensions
             {
                 Numero = pozoSave?.Numero,
                 Diametro = pozoSave?.Diametro,
+                Marca = pozoSave?.Marca,
                 //Ne = pozoSave?.Ne,
                 //Profundidad = pozoSave?.Profundidad,
                 //CantidadTubos = pozoSave?.CantidadTubos,
